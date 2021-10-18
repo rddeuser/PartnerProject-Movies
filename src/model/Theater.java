@@ -4,9 +4,11 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
 
 /**
  * @author Austin Donald - ajdonald
@@ -14,11 +16,12 @@ import javax.persistence.OneToMany;
  * Oct 12, 2021
  */
 @Entity
+@Table(name="theater")
 public class Theater {
 	@Id
 	@GeneratedValue
 	private int id;
-	@OneToMany(cascade=CascadeType.PERSIST)
+	@OneToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
 	private List<Movie> listOfMovies;
 	private String theaterName;
 	private String theaterLocation;
@@ -29,6 +32,15 @@ public class Theater {
 		this.theaterName = theaterName;
 		this.theaterLocation = theaterLocation;
 		this.listOfMovies = listOfMovies;
+	}
+	/**
+	 * @param theaterName
+	 * @param theaterLocation
+	 */
+	public Theater(String theaterName, String theaterLocation) {
+		super();
+		this.theaterName = theaterName;
+		this.theaterLocation = theaterLocation;
 	}
 	/**
 	 * @return the id

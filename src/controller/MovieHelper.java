@@ -14,6 +14,7 @@ import javax.persistence.Persistence;
 import model.Movie;
 
 public class MovieHelper {
+
 	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("PartnerProject-Movies");
 	
 	public void addMovie(Movie toInsert) {

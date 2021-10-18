@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 /**
  * @author Becca Deuser - rddeuser
@@ -17,6 +18,7 @@ import javax.persistence.Id;
  *
  */
 @Entity
+@Table(name="movie")
 public class Movie {
 	//declare attributes
 	@Id

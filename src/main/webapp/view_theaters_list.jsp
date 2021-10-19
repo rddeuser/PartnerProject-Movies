@@ -15,7 +15,6 @@
 		<td><h2>${currentlist.theaterName}</h2></td>
 		<td><h2>${currentlist.theaterLocation}</h2></td>
 	</tr>
-		<tr><td colspan="3">Reader: ${currentlist.reader.readerName}</td></tr>
 		<c:forEach var ="listVal" items ="${currentlist.ListOfMovies}">
 			<tr><td></td><td colspan="4">${listVal.title}, ${listVal.genre}, ${listVal.rating}, ${listVal.releaseDate}</td></tr>
 		</c:forEach>

@@ -32,7 +32,14 @@ public class AddTheaterServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MovieHelper helper = new MovieHelper();
+		TheaterHelper tHelper = new TheaterHelper();
 		
 		String theaterName = request.getParameter("theaterName");
 		String location = request.getParameter("location");
@@ -42,22 +49,15 @@ public class AddTheaterServlet extends HttpServlet {
 		
 		if(selectedMovies != null && selectedMovies.length > 0) {
 			for (int i = 0; i < selectedMovies.length; i++) {
-				Movie m = helper.findMovie(selectedMovies[i]);
+				Movie m = helper.searchForMovieById(Integer.parseInt(selectedMovies[i]));
 				selectedMoviesInList.add(m);
 			}//end for
 		}//end if
 		
 		Theater theater = new Theater(theaterName, location, selectedMoviesInList);
+		tHelper.insertTheater(theater);
 		
-		getServletContext().getRequestDispatcher("/add_theater.jsp").forward(request, response);
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		getServletContext().getRequestDispatcher("/viewTheatersServlet").forward(request, response);
 	}
 
 }

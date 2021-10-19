@@ -27,13 +27,13 @@ public class AddMoviesToTheaterServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		MovieHelper helper = new MovieHelper();
-		request.setAttribute("allTheaters", helper.showAllMovies());
+		request.setAttribute("allMovies", helper.showAllMovies());
 		
 		if (helper.showAllMovies().isEmpty()) {
-			request.setAttribute("allTheaters", " ");
+			request.setAttribute("allMovies", " ");
 		}//end if
 		
-		getServletContext().getRequestDispatcher("/new_theater.jsp").forward(request, response);
+		getServletContext().getRequestDispatcher("/add_theater.jsp").forward(request, response);
 	}
 
 	/**

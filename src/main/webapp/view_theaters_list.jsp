@@ -7,7 +7,7 @@
 <title>Theaters</title>
 </head>
 <body>
-	<form method ="post" action ="addTheaterServlet">
+	<form method ="post" action ="theaterNavigationServlet">
 	<table>
 	<c:forEach items="${requestScope.allTheaters}" var="currentlist">
 	<tr>
@@ -21,7 +21,8 @@
 	</c:forEach>
 	</table>
 	
-	<input type="submit" value ="add" name ="doThisToList">
+	<input type="submit" value ="add" name ="doThisToItem">
+	<input type ="submit" value ="delete" name="doThisToItem">
 	</form>
 	<a href="index.html">Insert a new movie</a>
 </body>

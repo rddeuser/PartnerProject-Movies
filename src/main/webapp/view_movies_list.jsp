@@ -12,7 +12,7 @@
 	<table>
 	<c:forEach items="${requestScope.allItems}" var="currentitem">
 	<tr>
-		<td><input type="radio" name="title" value="${currentitem.id}"></td>
+		<td><input type="radio" name="id" value="${currentitem.id}"></td>
 		<td>${currentitem.title}</td>
 		<td>${currentitem.genre}</td>
 		<td>${currentitem.rating}</td>
@@ -21,7 +21,6 @@
 	</c:forEach>
 	</table>
 	<input type ="submit" value ="edit" name="doThisToItem">
-	<input type ="submit" value ="delete" name="doThisToItem">
 	<input type="submit" value ="add" name ="doThisToItem">
 	</form>
 </body>

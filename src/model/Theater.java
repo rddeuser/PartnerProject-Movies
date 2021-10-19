@@ -21,7 +21,7 @@ public class Theater {
 	@Id
 	@GeneratedValue
 	private int id;
-	@OneToMany(cascade=CascadeType.PERSIST, fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.MERGE, fetch=FetchType.EAGER)
 	private List<Movie> listOfMovies;
 	private String theaterName;
 	private String theaterLocation;

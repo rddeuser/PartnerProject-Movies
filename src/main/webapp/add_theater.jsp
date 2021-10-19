@@ -13,8 +13,8 @@
 	Location: <input type="text" name="location"><br />
 	
 	Available Items:<br />
-	<select name="allItemsToAdd" multiple size="6">
-	<c:forEach items="${requestScope.allItems}" var="currentItem">
+	<select name="allMoviesToAdd" multiple size="6">
+	<c:forEach items="${requestScope.allMovies}" var="currentItem">
 	<option value = "${currentItem.id}">${currentItem.title} | ${currentItem.genre}</option>
 	</c:forEach>
 	</select>

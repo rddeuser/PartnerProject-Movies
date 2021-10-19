@@ -59,7 +59,7 @@ public class MovieHelper {
 		
 		//find movie with correct title
 		em.getTransaction().begin();
-		TypedQuery<Movie> typedQuery = em.createQuery("select m from Movie m where m.title = :selectedTitle", Movie.class);
+		TypedQuery<Movie> typedQuery = em.createQuery("SELECT m FROM Movie m where m.title = :selectedTitle", Movie.class);
 		typedQuery.setParameter("selectedTitle", title);
 		
 		//ensure only one result

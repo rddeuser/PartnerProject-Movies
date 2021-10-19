@@ -7,7 +7,7 @@
 <title>Reading Lists</title>
 </head>
 <body>
-	<form method ="post" action ="addMovieServlet">
+	<form method ="post" action ="addTheaterServlet">
 	<table>
 	<c:forEach items="${requestScope.allTheaters}" var="currentlist">
 	<tr>

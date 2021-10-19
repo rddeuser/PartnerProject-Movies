@@ -14,7 +14,7 @@ import model.Theater;
  * Oct 12, 2021
  */
 public class TheaterHelper {
-	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("PartnerProject-Movies2");
+	static EntityManagerFactory emfactory = Persistence.createEntityManagerFactory("PartnerProject-Movies");
 	public void insertTheater (Theater t) {
 		EntityManager em = emfactory.createEntityManager();
 		em.getTransaction().begin();

@@ -30,18 +30,20 @@ public class ViewTheatersServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		TheaterHelper helper = new TheaterHelper();
+		List<Theater> theaters = helper.allTheaters();
+		System.out.println(theaters.get(0));
+		
+		request.setAttribute("allTheaters", theaters);
+		
+		getServletContext().getRequestDispatcher("/view_theaters_list.jsp").forward(request, response);
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		TheaterHelper helper = new TheaterHelper();
-		List<Theater> theaters = helper.allTheaters();
-		
-		request.setAttribute("allTheaters", theaters);
+		doGet(request, response);
 		
 	}
 

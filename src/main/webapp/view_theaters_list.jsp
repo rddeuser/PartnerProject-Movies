@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Reading Lists</title>
+<title>Theaters</title>
 </head>
 <body>
 	<form method ="post" action ="addTheaterServlet">
@@ -15,7 +15,7 @@
 		<td><h2>${currentlist.theaterName}</h2></td>
 		<td><h2>${currentlist.theaterLocation}</h2></td>
 	</tr>
-		<c:forEach var ="listVal" items ="${currentlist.ListOfMovies}">
+		<c:forEach var ="listVal" items ="${currentlist.listOfMovies}">
 			<tr><td></td><td colspan="4">${listVal.title}, ${listVal.genre}, ${listVal.rating}, ${listVal.releaseDate}</td></tr>
 		</c:forEach>
 	</c:forEach>

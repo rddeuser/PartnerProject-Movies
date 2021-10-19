@@ -3,6 +3,7 @@
   <groupId>PartnerProject-Movies2</groupId>
   <artifactId>PartnerProject-Movies2</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <packaging>war</packaging>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <resources>

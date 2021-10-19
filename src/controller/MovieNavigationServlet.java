@@ -39,8 +39,6 @@ public class MovieNavigationServlet extends HttpServlet {
 		MovieHelper helper = new MovieHelper();
 		String act = request.getParameter("doThisToItem");
 		
-		String path = "/viewMoviesServlet";
-		
 		if (act.equals("delete")) {
 			try {
 				int id = Integer.parseInt(request.getParameter("id"));
@@ -55,16 +53,14 @@ public class MovieNavigationServlet extends HttpServlet {
 				int id = Integer.parseInt(request.getParameter("id"));
 				Movie toEdit = helper.searchForMovieById(id);
 				request.setAttribute("toEdit", toEdit);
-				path = "/edit_book.jsp";
+				getServletContext().getRequestDispatcher("/edit_movies.jsp").forward(request, response);
 			} catch (Exception e) {
 				System.out.println("Forgot to select an item");
 			}
 		}
 		else if (act.equals("add")) {
-			path = "/index.html";
+			getServletContext().getRequestDispatcher("/index.html").forward(request, response);
 		}
-		
-		getServletContext().getRequestDispatcher(path).forward(request, response);
 	}
 
 }

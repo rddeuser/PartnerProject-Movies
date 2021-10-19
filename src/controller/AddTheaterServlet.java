@@ -49,7 +49,7 @@ public class AddTheaterServlet extends HttpServlet {
 		
 		Theater theater = new Theater(theaterName, location, selectedMoviesInList);
 		
-		getServletContext().getRequestDispatcher("/ViewAllListsServlet").forward(request, response);
+		getServletContext().getRequestDispatcher("/add_theater.jsp").forward(request, response);
 	}
 
 	/**

@@ -10,6 +10,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.TypedQuery;
 
 import model.Movie;
 
@@ -35,7 +36,7 @@ public class MovieHelper {
 		EntityManager em = emfactory.createEntityManager();
 		
 		//create query for list of movies
-		List<Movie> allMovies = em.createQuery("SELECT m FROM Book m").getResultList();
+		List<Movie> allMovies = em.createQuery("SELECT m FROM Movie m").getResultList();
 		return allMovies;
 	}//end showAllMovies
 	
@@ -51,6 +52,26 @@ public class MovieHelper {
 		em.close();
 		return found;
 	}//end searchForMovieById
+	
+	public Movie findMovie(String title) {
+		//create entity manager
+		EntityManager em = emfactory.createEntityManager();
+		
+		//find movie with correct title
+		em.getTransaction().begin();
+		TypedQuery<Movie> typedQuery = em.createQuery("select m from Movie m where m.title = :selectedTitle", Movie.class);
+		typedQuery.setParameter("selectedTitle", title);
+		
+		//ensure only one result
+		typedQuery.setMaxResults(1);
+		
+		//create book
+		Movie foundMovie = typedQuery.getSingleResult();
+		
+		//close entity manager and return book
+		em.close();
+		return foundMovie;
+	}//end findBook
 	
 	public void updateMovie(Movie toEdit) {
 		//create entity manager
